@@ -1,8 +1,3 @@
-language: python
-
-python:
-  - "3.5"
-
 env:
   - DOCKER_COMPOSE_VERSION=1.4.2
 
@@ -13,7 +8,7 @@ before_install:
   - sudo mv docker-compose /usr/local/bin
 
 install:
- - make build
- - make migrate.docker
- 
-script: make test
+ - docker-compose build
+ - docker-compose run django python manage.py migrate
+
+script: docker-compose run django python manage.py test
