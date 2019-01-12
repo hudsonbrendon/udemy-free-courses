@@ -25,7 +25,7 @@ createusers.docker:
 	docker-compose run django python manage.py createusers --r --a --su
 
 up:
-	docker-compose up -d
+	docker-compose up
 
 logs:
 	docker-compose logs

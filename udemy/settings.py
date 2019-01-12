@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+import dj_database_url
 
 from decouple import config
 
@@ -44,10 +45,12 @@ DEFAULT_APPS = [
 
 THIRD_PARTY_APPS = []
 
-LOCAL_APPS = []
+LOCAL_APPS = [
+    'core',
+    'courses',
+]
 
 INSTALLED_APPS = LOCAL_APPS + THIRD_PARTY_APPS + DEFAULT_APPS
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -86,8 +89,6 @@ WSGI_APPLICATION = 'udemy.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(default=config('DATABASE_URL'))
 }
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -134,3 +135,23 @@ STATICFILES_DIRS = (
 )
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+# Telegram config
+
+TELEGRAM_TOKEN = config('TELEGRAM_TOKEN', default='')
+
+# Udemy config
+
+UDEMY_CLIENT_ID = config('UDEMY_CLIENT_ID', default='')
+
+UDEMY_CLIENT_SECRET  = config('UDEMY_CLIENT_SECRET', default='')
+
+# Twitter config
+
+TWITTER_API_KEY = config('TWITTER_API_KEY', default='')
+
+TWITTER_API_SECRET = config('TWITTER_API_SECRET', default='')
+
+TWITTER_OAUTH_TOKEN = config('TWITTER_OAUTH_TOKEN', default='')
+
+TWITTER_OAUTH_TOKEN_SECRET = config('TWITTER_OAUTH_TOKEN_SECRET', default='')

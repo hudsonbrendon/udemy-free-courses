@@ -7,3 +7,15 @@ dj-database-url==0.5.0
 
 # Enviroment
 python-decouple==3.1
+
+# Deploy
+whitenoise==4.1.2
+
+# Telegram
+python-telegram-bot==11.1.0
+
+# Twitter
+twython==3.7.0
+
+# Udemy
+pyudemy==0.1

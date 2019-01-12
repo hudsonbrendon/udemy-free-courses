@@ -17,7 +17,7 @@ export PGPASSWORD=$POSTGRES_PASSWORD
 echo "creating postgis extension"
 echo "---------------"
 
-psql -h postgres -U apiapi -c 'CREATE EXTENSION postgis;'
+psql -h postgres -U udemy -c 'CREATE EXTENSION postgis;'
 
 echo "successfully create postgis"
 
