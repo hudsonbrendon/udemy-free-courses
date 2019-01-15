@@ -33,7 +33,6 @@ services:
     links:
       - postgres
       - redis
-    env_file: .env
 
   redis:
     image: redis
