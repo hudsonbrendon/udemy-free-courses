@@ -1,10 +1,9 @@
 # Bleeding edge Django
-django==2.1.5
+django>=2.1.5
 
 # Database
 psycopg2-binary==2.7.6.1
 dj-database-url==0.5.0
-redis==3.0.1
 
 # Enviroment
 python-decouple==3.1
@@ -20,7 +19,3 @@ twython==3.7.0
 
 # Udemy
 pyudemy==0.1
-
-# Celery
-celery==4.2.0
-django_celery_beat==1.4.0
