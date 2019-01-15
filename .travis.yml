@@ -1,21 +1,13 @@
-env:
-  - DOCKER_COMPOSE_VERSION=1.23.2
+sudo: required
+dist: trusty
 
 services:
-  - postgresql
-
-before_install:
-  - sudo rm /usr/local/bin/docker-compose
-  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-  - chmod +x docker-compose
-  - sudo mv docker-compose /usr/local/bin
+- docker
 
 install:
- - docker-compose build
- - docker-compose run django python manage.py migrate
+- docker-compose pull
+- docker-compose build
+- docker-compose run django python manage.py migrate
 
-test:
-  adapter: postgresql
-  database: postgres
-
-script: docker-compose run django python manage.py test
+script: 
+ - docker-compose run django python manage.py test
