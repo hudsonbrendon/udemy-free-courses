@@ -7,7 +7,6 @@ services:
 install:
 - docker-compose pull
 - docker-compose build
-- docker-compose run django python manage.py migrate
 
 script: 
  - docker-compose run django python manage.py test
