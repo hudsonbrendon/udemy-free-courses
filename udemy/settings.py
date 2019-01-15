@@ -166,8 +166,8 @@ TWITTER_OAUTH_TOKEN_SECRET = config('TWITTER_OAUTH_TOKEN_SECRET', default='')
 
 # Celery configuration
 
-BROKER_URL = 'redis://redis:6379'
-CELERY_RESULT_BACKEND = 'redis://redis:6379'
+BROKER_URL = config('REDISCLOUD_URL', default='redis://redis:6379')
+CELERY_RESULT_BACKEND = config('REDISCLOUD_URL', default='redis://redis:6379')
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
