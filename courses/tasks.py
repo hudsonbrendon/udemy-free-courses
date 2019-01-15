@@ -1,10 +1,18 @@
 from django.conf import settings
 
 from courses.models import Course
+from courses.utils import create_course
 
 from pyudemy import Udemy
+from celery.task.schedules import crontab
+from celery.decorators import periodic_task
 
 
+@periodic_task(
+    run_every=(crontab(minute='*/1')),
+    name="create-course-every-1-minute",
+    ignore_result=True
+)
 def create_course():
     udemy = Udemy(settings.UDEMY_CLIENT_ID, settings.UDEMY_CLIENT_SECRET)
 

@@ -5,6 +5,7 @@ from django.conf import settings
 from courses.models import Course
 
 from twython import Twython
+from twython.exceptions import TwythonError
 from telegram import Bot, ParseMode
 
 
@@ -23,4 +24,8 @@ def send_message_twitter(sender, instance, **kwargs):
                       settings.TWITTER_API_SECRET,
                       settings.TWITTER_OAUTH_TOKEN,
                       settings.TWITTER_OAUTH_TOKEN_SECRET)
-    twitter.update_status(status=instance.message)
+    try:
+        twitter.update_status(status=instance.message)
+    except TwythonError as error:
+        if error.error_code == 403:
+            pass

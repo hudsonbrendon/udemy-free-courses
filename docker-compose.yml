@@ -30,4 +30,13 @@ services:
       - .:/app
     ports:
       - "8000:8000"
+    links:
+      - postgres
+      - redis
     env_file: .env
+
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+

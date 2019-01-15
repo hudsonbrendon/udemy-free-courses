@@ -25,7 +25,9 @@ createusers.docker:
 	docker-compose run django python manage.py createusers --r --a --su
 
 up:
-	docker-compose up
+	docker-compose up -d
+	docker-compose run -d django celery -A udemy worker -l info
+	docker-compose run django celery -A udemy beat -l info
 
 logs:
 	docker-compose logs

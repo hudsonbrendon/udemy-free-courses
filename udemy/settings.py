@@ -134,19 +134,19 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-
-# Telegram config
+# Telegram configuration
 
 TELEGRAM_TOKEN = config('TELEGRAM_TOKEN', default='')
 
-# Udemy config
+# Udemy configuration
+
+UDEMY_URL = config('UDEMY_URL', default='https://www.udemy.com')
 
 UDEMY_CLIENT_ID = config('UDEMY_CLIENT_ID', default='')
 
 UDEMY_CLIENT_SECRET  = config('UDEMY_CLIENT_SECRET', default='')
 
-# Twitter config
+# Twitter configuration
 
 TWITTER_API_KEY = config('TWITTER_API_KEY', default='')
 
@@ -155,3 +155,12 @@ TWITTER_API_SECRET = config('TWITTER_API_SECRET', default='')
 TWITTER_OAUTH_TOKEN = config('TWITTER_OAUTH_TOKEN', default='')
 
 TWITTER_OAUTH_TOKEN_SECRET = config('TWITTER_OAUTH_TOKEN_SECRET', default='')
+
+# Celery configuration
+
+BROKER_URL = 'redis://redis:6379'
+CELERY_RESULT_BACKEND = 'redis://redis:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'America/Recife'

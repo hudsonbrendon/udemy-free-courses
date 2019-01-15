@@ -1,6 +1,7 @@
 import uuid
 
 from django.db import models
+from django.conf import settings
 
 from core.models import BaseModel
 
@@ -18,7 +19,7 @@ class Course(BaseModel):
 
     @property
     def message(self):
-        url = 'https://www.udemy.com{}'.format(self.url)
+        url = '{udemy_url}{url}'.format(udemy_url=settings.UDEMY_URL, url=self.url)
         message = 'New free course available! \n {url}'.format(url=url)
         return message
 
