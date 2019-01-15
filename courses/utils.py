@@ -25,3 +25,5 @@ def create_course():
         }
 
     course, _ = Course.objects.get_or_create(**kwargs)
+
+    return course

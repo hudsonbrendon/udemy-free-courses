@@ -1,5 +1,5 @@
 # Bleeding edge Django
-django==2.1.2
+django==2.1.5
 
 # Database
 psycopg2-binary==2.7.6.1
