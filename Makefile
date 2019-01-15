@@ -26,6 +26,8 @@ createusers.docker:
 
 up:
 	docker-compose up -d
+	docker-compose run -d django celery -A udemy worker -l info
+	docker-compose run django celery -A udemy beat -l info
 
 logs:
 	docker-compose logs

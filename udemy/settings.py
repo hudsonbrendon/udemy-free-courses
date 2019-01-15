@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+import dj_database_url
 
 from decouple import config
 
@@ -26,9 +27,9 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = config('DEBUG', default=True, cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -44,10 +45,12 @@ DEFAULT_APPS = [
 
 THIRD_PARTY_APPS = []
 
-LOCAL_APPS = []
+LOCAL_APPS = [
+    'core',
+    'courses',
+]
 
 INSTALLED_APPS = LOCAL_APPS + THIRD_PARTY_APPS + DEFAULT_APPS
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -87,7 +90,13 @@ DATABASES = {
     'default': dj_database_url.config(default=config('DATABASE_URL'))
 }
 
-
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': 'database.sqlite3',
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -133,4 +142,24 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+# Telegram configuration
+
+TELEGRAM_TOKEN = config('TELEGRAM_TOKEN', default='')
+
+# Udemy configuration
+
+UDEMY_URL = config('UDEMY_URL', default='https://www.udemy.com')
+
+UDEMY_CLIENT_ID = config('UDEMY_CLIENT_ID', default='')
+
+UDEMY_CLIENT_SECRET  = config('UDEMY_CLIENT_SECRET', default='')
+
+# Twitter configuration
+
+TWITTER_API_KEY = config('TWITTER_API_KEY', default='')
+
+TWITTER_API_SECRET = config('TWITTER_API_SECRET', default='')
+
+TWITTER_OAUTH_TOKEN = config('TWITTER_OAUTH_TOKEN', default='')
+
+TWITTER_OAUTH_TOKEN_SECRET = config('TWITTER_OAUTH_TOKEN_SECRET', default='')

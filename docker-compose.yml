@@ -12,6 +12,7 @@ services:
       - postgres_data_dev:/var/lib/postgresql/data
     environment:
       - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
     ports:
       - "5432:5432"
 
@@ -29,4 +30,12 @@ services:
       - .:/app
     ports:
       - "8000:8000"
-    env_file: .env
+    links:
+      - postgres
+      - redis
+
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+
