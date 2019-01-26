@@ -4,9 +4,9 @@ from django.conf import settings
 
 from courses.models import Course
 
+from telegram import Bot, ParseMode
 from twython import Twython
 from twython.exceptions import TwythonError
-from telegram import Bot, ParseMode
 
 
 @receiver(post_save, sender=Course) 
