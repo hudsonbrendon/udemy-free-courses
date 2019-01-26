@@ -8,5 +8,6 @@ install:
 - docker-compose pull
 - docker-compose build
 
-script: 
+script:
+ - sudo systemctl stop postgresql
  - docker-compose run django python manage.py test
