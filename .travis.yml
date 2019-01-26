@@ -16,5 +16,8 @@ before_install:
   - sudo mv docker-compose /usr/local/bin
   - docker-compose build
 
+before_script:
+  - sudo /etc/init.d/postgresql stop
+
 script:
  - docker-compose run django python manage.py test
