@@ -6,26 +6,9 @@ python:
 services:
   - docker
 
-env:
-  - DOCKER_COMPOSE_VERSION=1.23.2
-  - SECRET_KEY=${SECRET_KEY}
-  - DEBUG=${DEBUG}
-  - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-  - DATABASE_URL=${DATABASE_URL}
-
-  - TELEGRAM_TOKEN=${TELEGRAM_TOKEN}
-
-  - UDEMY_CLIENT_ID=${UDEMY_CLIENT_ID}
-  - UDEMY_CLIENT_SECRET=${UDEMY_CLIENT_SECRET}
-
-  - TWITTER_API_KEY=${TWITTER_API_KEY}
-  - TWITTER_API_SECRET=${TWITTER_API_SECRET}
-  - TWITTER_OAUTH_TOKEN=${TWITTER_OAUTH_TOKEN}
-  - TWITTER_OAUTH_TOKEN_SECRET=${TWITTER_OAUTH_TOKEN_SECRET}
-
 before_install:
   - sudo rm /usr/local/bin/docker-compose
-  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - curl -L https://github.com/docker/compose/releases/download/1.23.2/docker-compose-`uname -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
   - docker-compose build
