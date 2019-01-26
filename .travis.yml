@@ -4,9 +4,5 @@ dist: trusty
 services:
 - docker
 
-install:
-- docker-compose pull
-- docker-compose build
-
 script: 
  - docker-compose run django python manage.py test
