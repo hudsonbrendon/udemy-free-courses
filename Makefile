@@ -8,13 +8,13 @@ migrate.docker:
 makemigrations.docker:
 	docker-compose run django python manage.py makemigrations
 
-collectstatic:
+collectstatic.docker:
 	docker-compose run django python manage.py collectstatic
 
-test:
+test.docker:
 	docker-compose run django python manage.py test $(app)
 
-coverage:
+coverage.docker:
 	docker-compose run django coverage run --source='.' manage.py test $(app)
 	docker-compose run django coverage report
 
@@ -24,21 +24,19 @@ shell.docker:
 createusers.docker:
 	docker-compose run django python manage.py createusers --r --a --su
 
-up:
+up.docker:
 	docker-compose up -d
-	docker-compose run -d django celery -A udemy worker -l info
-	docker-compose run django celery -A udemy beat -l info
 
-logs:
+logs.docker:
 	docker-compose logs
 
-down:
+down.docker:
 	docker-compose down
 
-build:
+build.docker:
 	docker-compose build
 
-start:
+start.docker:
 	docker-compose start
 
 stop:
