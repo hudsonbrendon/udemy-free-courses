@@ -19,3 +19,4 @@ twython==3.7.0
 
 # Udemy
 pyudemy==0.1
+django-models==latest
