@@ -1,7 +1,7 @@
 # Udemy Free Courses
 
-[![Build Status](https://travis-ci.org/hudsonbrendon/pyudemy.svg?branch=master)](https://travis-ci.org/hudsonbrendon/pyudemy)
-[![Github Issues](http://img.shields.io/github/issues/hudsonbrendon/pyudemy.svg?style=flat)](https://github.com/hudsonbrendon/pyudemy/issues?sort=updated&state=open)
+[![Build Status](https://travis-ci.org/hudsonbrendon/udemy-free-courses.svg?branch=master)](https://travis-ci.org/hudsonbrendon/udemy-free-courses)
+[![Github Issues](http://img.shields.io/github/issues/hudsonbrendon/udemy-free-courses.svg?style=flat)](https://github.com/hudsonbrendon/udemy-free-courses/issues?sort=updated&state=open)
 ![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)
 
 ![Udemy](logo.png "Udemy")
