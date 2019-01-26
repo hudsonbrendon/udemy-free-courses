@@ -1,13 +1,10 @@
-sudo: required
-dist: trusty
+language: python
 
 services:
 - docker
 
-install:
-- docker-compose pull
+before_install:
 - docker-compose build
 
 script:
- - sudo systemctl stop postgresql
  - docker-compose run django python manage.py test
