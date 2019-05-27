@@ -43,9 +43,7 @@ DEFAULT_APPS = [
     'django.contrib.staticfiles',
 ]
 
-THIRD_PARTY_APPS = [
-    'models-apps'
-]
+THIRD_PARTY_APPS = []
 
 LOCAL_APPS = [
     'core',
