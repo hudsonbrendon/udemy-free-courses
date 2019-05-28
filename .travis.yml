@@ -5,7 +5,6 @@ services:
 - docker
 
 install:
-- docker-compose pull
 - docker-compose build
 
 script: 
